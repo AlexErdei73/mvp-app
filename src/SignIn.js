@@ -46,8 +46,16 @@ function Copyright() {
     },
   }));
 
-  export default function SignIn() {
+  export default function SignIn(props) {
     const classes = useStyles();
+    const {onSubmit, value, setValue} = {...props};
+
+    const handleChange = (event) => {
+      const newValue = {...value};
+      const name = event.target.name;
+      newValue[name] = event.target.value;
+      setValue(newValue);
+    };
   
     return (
       <Container component="main" maxWidth="xs">
@@ -59,7 +67,7 @@ function Copyright() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form} noValidate onSubmit={onSubmit}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -70,6 +78,8 @@ function Copyright() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={handleChange}
+              value={value.email}
             />
             <TextField
               variant="outlined"
@@ -81,37 +91,39 @@ function Copyright() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={handleChange}
+              value={value.password}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
             <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign In
-          </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Sign In
+            </Button>
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link href="#" variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
-    </Container>
-  );
-}
+          </form>
+        </div>
+        <Box mt={8}>
+          <Copyright />
+        </Box>
+      </Container>
+    );
+  }

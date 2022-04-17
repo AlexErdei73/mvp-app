@@ -2,9 +2,57 @@ import 'firebase/database';
 import { ref } from 'firebase/database';
 import * as React from 'react';
 import { useDatabase, useDatabaseObjectData } from 'reactfire';
+import { Container, Grid, Typography } from "@material-ui/core";
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import {
+  createTheme,
+  makeStyles,
+  ThemeProvider
+} from "@material-ui/core/styles";
+import lightBlue from "@material-ui/core/colors/lightBlue";
+import MomentUtils from "@date-io/moment";
+import { PatientCard } from "fhir-ui";
 
 const Patients = (props) => {
     const { patients, index } = props;
+
+    const useStyles = makeStyles(theme => ({
+        root: {
+          margin: theme.spacing(6, 0, 3)
+        },
+        header: {
+          margin: theme.spacing(1)
+        },
+        body: {
+          display: "flex",
+          justifyContent: "center",
+          margin: theme.spacing(1)
+        }
+      }));
+      
+      // Create a theme instance.
+      const theme = createTheme({
+        palette: {
+          primary: {
+            light: lightBlue[300],
+            main: lightBlue[500],
+            dark: lightBlue[900],
+            contrastText: "#FFF"
+          },
+          secondary: {
+            light: lightBlue[300],
+            main: lightBlue[500],
+            dark: lightBlue[900],
+            contrastText: "#FFF"
+          },
+          background: {
+            default: "#f9f9f9"
+          }
+        }
+      });
+
+    const classes = useStyles();
+
     const entry = `records/${patients[index].entry}`;
     const database = useDatabase();
     const patientRef = ref(database, entry);
@@ -17,7 +65,22 @@ const Patients = (props) => {
     } else {
         console.log(patient);
         return ( 
-        <div>Patient</div>
+          <ThemeProvider theme={theme}>
+            <MuiPickersUtilsProvider utils={MomentUtils}>
+              <Container>
+                <div className={classes.body}>
+                  <Grid container spacing={3} direction="row" justifyContent="center">
+                    <Grid item xs={12} md={6}>
+                      <Typography variant="subtitle1" gutterBottom align="center">
+                        Patient Card
+                      </Typography>
+                      <PatientCard patient={patient} />
+                    </Grid>
+                  </Grid>
+                </div>
+              </Container>
+            </MuiPickersUtilsProvider>
+          </ThemeProvider>
         );
     }
 }

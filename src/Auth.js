@@ -46,12 +46,14 @@ const Auth = () => {
       if (signedIn === true) {
         return (
         <>
-          <Database />
-          <Grid container justifyContent="center">
-            <Box m={4}>
-              <Button variant="contained" color="primary" onClick={() => signOut(auth)}>sign out</Button>
-            </Box>
-          </Grid>
+          <Box m={8}>
+            <Database />
+            <Grid container justifyContent="center">
+              <Box m={4}>
+                <Button variant="contained" color="primary" onClick={() => signOut(auth)}>sign out</Button>
+              </Box>
+            </Grid>
+          </Box>
         </>
         );
       } else {

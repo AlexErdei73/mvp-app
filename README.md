@@ -4,6 +4,12 @@ with MongoDB, Express and Node.js, not to mention to contenerize my solution.
 To create an mvp-app my only option is to use Firebase, which I have already used
 to create my [Fakebook](https://alexerdei73.github.io/fakebook/) app. I will use [reactfire](https://github.com/FirebaseExtended/reactfire) to connect [React](https://reactjs.org/) with [Firebase](https://firebase.google.com/). The app will show some parts of medical records, which are in a standardized format. 
 
+## Protecting Data
+The Firebase Auth product protects the data. If you want to try the app, you need to use the following credentials to login and get access to the data:
+
+email: doctorAdmin@gmail.com
+password: doctorAdmin
+
 ## First Solution Plan
 The JSON objects, which I am supposed to use as data, are really huge and in a format, which is currently unknown for me. I plan to use a pre-written UI component set, which is designed for the data to visualise it. You can see it here [FHIR-UI](https://github.com/healthintellect/fhir-ui). These are React components, so this MVP app will be a React app. I will use Material UI as a first time user, because the UI components require this anyway. I will not build a back-end as I have never done it yet, so my chances are very little to be successful in the given time. I will use Firebase back-end and connect it to React with Reactfire as I have already done it. Firebase firestore is a great database, but I would need to write code, just to push the large JSON files there. Writting a JSON parser is out of possibility, so I will put some basic data from the objects to the database, so we can search by name or patient ID. The database will point to the JSON data files, which I will upload to Firebase storage. I will protect the data with Firebase Auth. As an MVP product I am trying to implement some basic search and patient personal data visualisation by the patient card UI component. If everything goes well, and the UI component is able to read the data from the given JSON objects, I will be able to provide an acceptable basic solution. It is of course front-end development instead of full-stack, but it will result a very simple MVP app.
 
@@ -18,6 +24,9 @@ The npm packages, which are in the dependancy tree, are legacy packages. Luckily
 npm install --legacy-peer-deps
 
 You can read about what the flag does [here](https://stackoverflow.com/questions/66239691/what-does-npm-install-legacy-peer-deps-do-exactly-when-is-it-recommended-wh)
+
+## Indexing the Firestore Realtime Database
+Although the JSON files can be uploaded, any search in the database is very expensive on data, because the objects are nested and huge. I need to add some basic index fields to make searching easier, otherwise the app runs out very quickly from the free tier of Firebase.
 
 ## Full Stack - Technical Assesment
 Our tech teams are curious, driven, intelligent, pragmatic, collaborative and open-minded and you should be too.

@@ -8,6 +8,7 @@ import { FirebaseAppProvider } from 'reactfire';
 const firebaseConfig = {
   apiKey: "AIzaSyDMhOFj__TM9qd18HG-JL4JOJWC4gtfCQY",
   authDomain: "mvp-app-b233e.firebaseapp.com",
+  databaseURL: "https://mvp-app-b233e-default-rtdb.europe-west1.firebasedatabase.app/",
   projectId: "mvp-app-b233e",
   storageBucket: "mvp-app-b233e.appspot.com",
   messagingSenderId: "784383986018",

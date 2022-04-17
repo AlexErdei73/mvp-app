@@ -2,6 +2,8 @@ import { useState } from 'react';
 import SignIn from './SignIn';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useAuth, useSigninCheck } from 'reactfire';
+import { Button, Grid, Box } from '@material-ui/core';
+import Database from './Database';
 
 
 const Auth = () => {
@@ -42,7 +44,16 @@ const Auth = () => {
     const signedIn = signinResult.signedIn;
     
       if (signedIn === true) {
-        return <button onClick={() => signOut(auth)}>sign out</button>;
+        return (
+        <>
+          <Database />
+          <Grid container justifyContent="center">
+            <Box m={4}>
+              <Button variant="contained" color="primary" onClick={() => signOut(auth)}>sign out</Button>
+            </Box>
+          </Grid>
+        </>
+        );
       } else {
         return <SignIn onSubmit={handleSubmit} value={user} setValue={setUser}/> ;
       }

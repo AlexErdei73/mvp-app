@@ -1,19 +1,20 @@
 import 'firebase/database';
-import { ref, query, orderByChild, push, set, increment as rtdbIncrement } from 'firebase/database';
+import { ref } from 'firebase/database';
 import * as React from 'react';
-import { useDatabase, useDatabaseListData, useDatabaseObjectData, useFirebaseApp, useUser } from 'reactfire';
+import { useDatabase, useDatabaseListData } from 'reactfire';
+import Patients from './Patients';
 
 const ShowData = () => {
     const database = useDatabase();
-    const recordsRef = ref(database, "records");
-    const { status, data: records } = useDatabaseListData(recordsRef);
+    const patientsRef = ref(database, "patients");
+    const { status, data: patients } = useDatabaseListData(patientsRef);
     if (status==="loading") {
         return (
             <div>...loading</div>
         );
     } else {
-        console.log(records);
-        return ( <></> );
+        console.log(patients);
+        return (<Patients patients={patients} index={2}/>);
     }
 }
  

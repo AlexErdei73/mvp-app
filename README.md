@@ -28,6 +28,50 @@ You can read about what the flag does [here](https://stackoverflow.com/questions
 ## Indexing the Firestore Realtime Database
 Although the JSON files can be uploaded, any search in the database is very expensive on data, because the objects are nested and huge. I need to add some basic index fields to make searching easier, otherwise the app runs out very quickly from the free tier of Firebase.
 
+## Issue with the FHR-UI Patient Card Component
+Issue: The component renders correctly first time, but it fails
+to update the patient data, when the patient prop gets updated
+and the componentsgets rerendered.
+
+Reason: Currently unknown
+
+Demonstration: I have added the BasicPatientCard component to the code. This component behaves correctly. When the patient prop changes and the component gets rerendered by React, the patient
+data is updated as well.
+
+Possible solutions:
+1. We can debug the code and fix it ourself. The code is quite complex and uses Material-UI for its styling. I needed a great tutorial to further work with it, because not everything is like in the simpler Bootstrap. It looks better than Bootstrap, but it is more difficult.
+2. We can rewrite the component with Material-UI or Bootstrap or even with vanilla CSS. It may be time consuming as well. If we want to use the other components, we need to test these as well. We can run into similar or even more serious problems.
+3. We can leave an issue for the developer on the gitHub page of the project. The developer might have abandoned the project, because the commits are 2 years old, so we have little hope for getting a resolution this way.
+4. We can look for a similar library. This one seemed to be the most promissing one for me tough. 
+
+Perhaps the easiest thing to do for me is to learn Material-UI well and fix the code. The issue might be some minor thing to solve. If we want to use the other components we need to test these as well at least visually as we did with this one. If the code is very buggy, we may need to rewrite it fully, but it is perhaps easier to fix the issues. 
+
+## Deployment
+I don't think that the app has reached the production level yet. If we want to deploy it, the following steps needs to be done:
+1. We need to fix the issue with the Patient Card component
+2. Clean up all the unnecessary files from the create react app setup and remove all the console.log-s, which we use during development.
+3. We need to deploy the app either to gitHub pages or Firebase. We can follow tutorals for this. This step is not difficult at all.
+4. To protect the database we need to set up the appropriate security rule in Firebase app. It should only allow the registered user to access the database. This is easy according to the Firebase documentation. During development the database is accessable by anybody usually. This is the case here too.
+
+## Usage in development mode
+1. Clone the repository
+
+git clone git@github.com:AlexErdei73/mvp-app.git
+
+2. Go to the local repository
+
+cd mvp-app
+
+3. Install the dependencies:
+
+npm install --legacy-peer-deps
+
+4. Run the app with the local developer server
+
+npm start
+
+It will open the app in your browser for further development. The code can be modified in your editor on your local repository and the setup will compile and run the new version in your browser automatically.
+
 ## Full Stack - Technical Assesment
 Our tech teams are curious, driven, intelligent, pragmatic, collaborative and open-minded and you should be too.
 

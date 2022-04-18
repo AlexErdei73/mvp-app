@@ -12,9 +12,11 @@ import {
 import lightBlue from "@material-ui/core/colors/lightBlue";
 import MomentUtils from "@date-io/moment";
 import { PatientCard } from "fhir-ui";
+import SelectPatient from './SelectPatient';
 
 const Patients = (props) => {
-    const { patients, index } = props;
+    const { patients } = props;
+    const [index, setIndex] = React.useState(0);
 
     const useStyles = makeStyles(theme => ({
         root: {
@@ -63,11 +65,17 @@ const Patients = (props) => {
             <div>...loading</div>
         )
     } else {
+        console.log(index);
         console.log(patient);
         return ( 
           <ThemeProvider theme={theme}>
             <MuiPickersUtilsProvider utils={MomentUtils}>
               <Container>
+                <SelectPatient 
+                  patients={patients}
+                  index={index}
+                  setIndex={setIndex}
+                />
                 <div className={classes.body}>
                   <Grid container spacing={3} direction="row" justifyContent="center">
                     <Grid item xs={12} md={6}>

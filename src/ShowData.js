@@ -14,7 +14,7 @@ const ShowData = () => {
         );
     } else {
         console.log(patients);
-        return (<Patients patients={patients} index={2}/>);
+        return (<Patients patients={patients}/>);
     }
 }
  

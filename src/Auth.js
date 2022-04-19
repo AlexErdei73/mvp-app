@@ -46,10 +46,10 @@ const Auth = () => {
       if (signedIn === true) {
         return (
         <>
-          <Box m={8}>
+          <Box mt={8}>
             <Database />
             <Grid container justifyContent="center">
-              <Box m={4}>
+              <Box mt={4}>
                 <Button variant="contained" color="primary" onClick={() => signOut(auth)}>sign out</Button>
               </Box>
             </Grid>

@@ -2,7 +2,7 @@ import 'firebase/database';
 import { ref } from 'firebase/database';
 import { useState } from 'react';
 import { useDatabase, useDatabaseObjectData } from 'reactfire';
-import { Container, Grid, Typography } from "@material-ui/core";
+import { Container, Grid, Typography, Box } from "@material-ui/core";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import {
   createTheme,
@@ -70,11 +70,15 @@ const Patients = (props) => {
           <ThemeProvider theme={theme}>
             <MuiPickersUtilsProvider utils={MomentUtils}>
               <Container>
-                <SelectPatient 
-                  patients={patients}
-                  index={index}
-                  setIndex={setIndex}
-                />
+                <Grid container justifyContent='center'>
+                  <Box mb={4}>
+                    <SelectPatient 
+                      patients={patients}
+                      index={index}
+                      setIndex={setIndex}
+                    />
+                  </Box>
+                </Grid>
                 <div className={classes.body}>
                   <Grid container spacing={3} direction="row" justifyContent="center">
                     <Grid item xs={12} md={6}>

@@ -65,8 +65,7 @@ const Patients = (props) => {
             <div>...loading</div>
         )
     } else {
-        console.log(index);
-        console.log(patient);
+        console.log('patient: ', patient);
         return ( 
           <ThemeProvider theme={theme}>
             <MuiPickersUtilsProvider utils={MomentUtils}>

@@ -10,7 +10,7 @@ const Database = () => {
 
     return ( 
     <DatabaseProvider sdk={database}>
-        <ShowData></ShowData>
+        <ShowData />
     </DatabaseProvider> 
     );
 }

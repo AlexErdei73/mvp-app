@@ -13,7 +13,7 @@ const ShowData = () => {
             <div>...loading</div>
         );
     } else {
-        console.log(patients);
+        console.log('patients: ', patients);
         return (<Patients patients={patients}/>);
     }
 }

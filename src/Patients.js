@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core/styles";
 import lightBlue from "@material-ui/core/colors/lightBlue";
 import MomentUtils from "@date-io/moment";
-import { PatientCard } from "fhir-ui";
+import PatientCard from "./PatientCard";
 import SelectPatient from './SelectPatient';
 import BasicPatientCard from './BasicPatientCard';
 

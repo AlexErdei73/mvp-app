@@ -72,6 +72,11 @@ npm start
 
 It will open the app in your browser for further development. The code can be modified in your editor on your local repository and the setup will compile and run the new version in your browser automatically.
 
+## Why does the Patient Card component not update?
+I have checked the source code of the component. There is a useEffect hook, which updates the state of the app. This hook only runs at the first rendering of the component, because it has an empty array as a second parameter. We need to remove this empty array from the source code and rebuild the npm package. 
+The whole process is written down [here](https://medium.com/@nodkz/how-to-fix-nodejs-packages-within-your-app-and-send-pull-request-with-your-changes-8b4dcb89492b)
+As a temporary fix I will put the source code of the component in the src folder and update the import statement and let my developer machine build it to see if it works.
+
 ## Full Stack - Technical Assesment
 Our tech teams are curious, driven, intelligent, pragmatic, collaborative and open-minded and you should be too.
 

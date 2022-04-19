@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mvp-app/static/css/main.073c9b0a.css",
+    "main.js": "/mvp-app/static/js/main.0618fb45.js",
+    "static/js/787.c6cb0f70.chunk.js": "/mvp-app/static/js/787.c6cb0f70.chunk.js",
+    "index.html": "/mvp-app/index.html",
+    "main.073c9b0a.css.map": "/mvp-app/static/css/main.073c9b0a.css.map",
+    "main.0618fb45.js.map": "/mvp-app/static/js/main.0618fb45.js.map",
+    "787.c6cb0f70.chunk.js.map": "/mvp-app/static/js/787.c6cb0f70.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.0618fb45.js"
+  ]
+}

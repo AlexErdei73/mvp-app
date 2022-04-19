@@ -13,7 +13,6 @@ import lightBlue from "@material-ui/core/colors/lightBlue";
 import MomentUtils from "@date-io/moment";
 import PatientCard from "./PatientCard";
 import SelectPatient from './SelectPatient';
-import BasicPatientCard from './BasicPatientCard';
 
 const Patients = (props) => {
     const { patients } = props;
@@ -77,7 +76,6 @@ const Patients = (props) => {
                   index={index}
                   setIndex={setIndex}
                 />
-                <BasicPatientCard patient={patient}/>
                 <div className={classes.body}>
                   <Grid container spacing={3} direction="row" justifyContent="center">
                     <Grid item xs={12} md={6}>

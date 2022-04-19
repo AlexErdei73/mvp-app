@@ -1,6 +1,6 @@
 import 'firebase/database';
 import { ref } from 'firebase/database';
-import * as React from 'react';
+import { useState } from 'react';
 import { useDatabase, useDatabaseObjectData } from 'reactfire';
 import { Container, Grid, Typography } from "@material-ui/core";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
@@ -16,7 +16,7 @@ import SelectPatient from './SelectPatient';
 
 const Patients = (props) => {
     const { patients } = props;
-    const [index, setIndex] = React.useState(0);
+    const [index, setIndex] = useState(0);
 
     const useStyles = makeStyles(theme => ({
         root: {

@@ -1,6 +1,5 @@
 import 'firebase/database';
 import { getDatabase } from 'firebase/database';
-import * as React from 'react';
 import { DatabaseProvider, useFirebaseApp } from 'reactfire';
 import ShowData from './ShowData';
 

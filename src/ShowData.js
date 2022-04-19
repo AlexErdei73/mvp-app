@@ -1,6 +1,5 @@
 import 'firebase/database';
 import { ref } from 'firebase/database';
-import * as React from 'react';
 import { useDatabase, useDatabaseListData } from 'reactfire';
 import Patients from './Patients';
 

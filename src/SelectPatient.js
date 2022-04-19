@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Box, TextField, MenuItem } from '@material-ui/core';
 
 const SelectPatient = (props) => {

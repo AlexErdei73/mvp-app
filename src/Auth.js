@@ -28,7 +28,7 @@ const Auth = () => {
         event.preventDefault();
         signIn(auth, user)
         .then((data) => {
-            console.log(`${data.user.displayName} has signed in.`);
+            console.log(`User has signed in.`);
         })
         .catch((error) => {
             console.error(error.message, error.code);
